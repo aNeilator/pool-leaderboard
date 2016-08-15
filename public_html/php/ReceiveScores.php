@@ -49,18 +49,29 @@ elseif ($TYPE == "leaderboard") {
 	// WHERE WINNER = p.UID) as WON,
 	// (SELECT COUNT(*) FROM GAMES
 	// WHERE LOSER = p.UID) as LOST
-	$q_s = "SELECT p.*
-	FROM PLAYER p ";
+	$q_s = "SELECT
+	@curRank := @curRank + 1 AS RANK,
+	CONCAT_WS(' ', p.FNAME, p.LNAME) AS NAME,
+	p.WON as WON, p.LOST as LOST, ROUND(p.RATING,2) as SCORE
+	FROM PLAYER p, (SELECT @curRank := 0) r ";
 
-$q_e = " ORDER BY WON DESC LIMIT 50";
- 	$q = $q_s
-	  //  . getQueryRange($DATERANGE)
-		 . $q_e;
+	$q_e = " ORDER BY SCORE DESC";
+	$q = $q_s . $q_e;
+}
+elseif ($TYPE == "player-all") {
+
+	$q_s = "SELECT UID FROM PLAYER";
+	$q_e = " ORDER BY UID DESC";
+	$q = $q_s . $q_e;
+}
+else{
+	exit();
 }
 
 
 
 parseQueryAsJson($q, $db);
+
 function parseQueryAsJson($q, $db){
 		// echo $q;
 		if ($result = $db->query ( $q )) {
