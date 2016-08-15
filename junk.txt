@@ -1,0 +1,10 @@
+SELECT c.UID,
+       (select count(*) from GAMES where b.WINNER = c.UID) AS TotalGames
+from PLAYER as c, GAMES as b
+                    where b.WINNER = c.UID
+
+
+                    SELECT
+                       WINNER,  COUNT(WINNER) AS Wins, COUNT(LOSER) AS Lose
+                    FROM    GAMES
+                    GROUP BY WINNER

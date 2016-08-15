@@ -1,0 +1,91 @@
+<html>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<!-- <script src="js/jquery-2.1.4.min.js"></script> -->
+<head>
+  <title>Pool Leaderboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="theme-color" content="#ff0d28">
+  <script>
+    window.jQuery ||
+    document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">\x3C/script>')
+  </script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+    <h1>admin page</h1>
+    <h3> Latest Games </h3>
+    <div id="stream-all"></div>
+    <h3> Leaderboard </h3>
+    <div id="stream-players"></div>
+        <h3> Add Player </h3>
+        <form id="addScore" action="AddScore.php" method="post">
+            <table>
+                <tr>
+                    <td>Pass</td>
+                    <td>
+                        <input type="password" name="PASS" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>First name</td>
+                    <td>
+                        <input type="text" name="FNAME" value="Neil" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last name</td>
+                    <td>
+                        <input type="text" name="LNAME" value="Diamond" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="text" name="UID" value="neil.diamond" />@akqa.com
+                    </td>
+                </tr>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" />
+                    </td>
+                </tr>
+                </tr>
+            </table>
+        </form>
+        <h3> Add Game </h3>
+        <form id="addGame" action="http://pool88.site88.net/AddGame.php" method="post">
+            <table>
+                <tr><td>Pass</td>
+                    <td><input type="password" name="PASS" /></td>
+                </tr>
+                <tr><td>Winner</td>
+                    <td><input type="text" name="WINNER" value="neil" /></td>
+                </tr>
+                <tr><td>loser</td>
+                    <td><input type="text" name="LOSER" value="neil.diamond" /></td>
+                </tr>
+                <tr><td>Was a drunk Game</td>
+                  <td><input type="number" name="DRUNK" value="0" />(0,1)->(yes,no)</td>
+                </tr>
+                <tr><td>Date</td>
+                    <td><input type="datetime-local" name="DATE" value="" /></td>
+                </tr>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" />
+                    </td>
+                </tr>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</body>
+
+</html>
