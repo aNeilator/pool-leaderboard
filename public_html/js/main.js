@@ -17,7 +17,7 @@ $(document).ready(function() {
     populateData();
 });
 
-var HOST = "http://pool88.site88.net/";
+var HOST = "http://pool88.site88.net/php/";
 
 function populateData(){
 
