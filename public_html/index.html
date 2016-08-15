@@ -18,13 +18,15 @@
   <script src="js/jquery-ui.min.js"></script>
 </head>
 <body>
-    <h1>admin page</h1>
-    <h3> Latest Games </h3>
-    <div id="stream-all"></div>
+    <h1>Pool</h1>
+    <div class="circle left-circle"></div>
+    <div class="circle right-circle"></div>
     <h3> Leaderboard </h3>
-    <div id="stream-players"></div>
+    <div id="stream-players">
+      <table class="leaderboard" border="0"><tbody><tr><th>RANK</th><th>NAME</th><th>WON</th><th>LOST</th><th>SCORE</th></tr><tr><td>1</td><td class="name ui-draggable ui-draggable-handle">Snehil Bhushan</td><td class="num">14</td><td class="num">2</td><td>25.21</td></tr><tr><td>2</td><td class="name ui-draggable ui-draggable-handle">Sophie Dick</td><td class="num">0</td><td class="num">0</td><td>0.00</td></tr><tr><td>3</td><td class="name ui-draggable ui-draggable-handle">cool Person</td><td class="num">0</td><td class="num">1</td><td>-7.59</td></tr><tr><td>4</td><td class="name ui-draggable ui-draggable-handle">Neil Diamond</td><td class="num">2</td><td class="num">11</td><td>-17.62</td></tr></tbody></table>
+    </div>
         <h3> Add Player </h3>
-        <form id="addScore" action="AddScore.php" method="post">
+        <!-- <form id="addScore" action="AddScore.php" method="post">
             <table>
                 <tr>
                     <td>Pass</td>
@@ -87,7 +89,7 @@
                 </tr>
                 </tr>
             </table>
-        </form>
+        </form> -->
 
     </div>
 </body>
