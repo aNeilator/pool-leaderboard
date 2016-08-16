@@ -19,78 +19,23 @@
 </head>
 <body>
     <h1>Pool</h1>
-    <div class="circle left-circle"></div>
-    <div class="circle right-circle"></div>
+    <div class="circle left-circle">
+      <span id = "add-name-left">WUT</span>
+      <button id="cancel-left" class="button-add-cancel">Remove</button>
+    </div>
+    <div class="circle right-circle">
+      <span id = "add-name-right">FAS</span>
+      <button id="cancel-right" class="button-add-cancel">Remove</button>
+    </div>
+    <div id="add-name-button" class="circle button-add">
+      <button>Add Game</button>
+    </div>
     <h3> Leaderboard </h3>
     <div id="stream-players">
-      <table class="leaderboard" border="0"><tbody><tr><th>RANK</th><th>NAME</th><th>WON</th><th>LOST</th><th>SCORE</th></tr><tr><td>1</td><td class="name ui-draggable ui-draggable-handle">Snehil Bhushan</td><td class="num">14</td><td class="num">2</td><td>25.21</td></tr><tr><td>2</td><td class="name ui-draggable ui-draggable-handle">Sophie Dick</td><td class="num">0</td><td class="num">0</td><td>0.00</td></tr><tr><td>3</td><td class="name ui-draggable ui-draggable-handle">cool Person</td><td class="num">0</td><td class="num">1</td><td>-7.59</td></tr><tr><td>4</td><td class="name ui-draggable ui-draggable-handle">Neil Diamond</td><td class="num">2</td><td class="num">11</td><td>-17.62</td></tr></tbody></table>
+      <!-- <table class="leaderboard" border="0"><tbody><tr><th>RANK</th><th>NAME</th><th>WON</th><th>LOST</th><th>SCORE</th></tr><tr><td>1</td><td><label class="name" for="snehil.bhushan">Snehil Bhushan</label></td><td class="num">18</td><td class="num">3</td><td>45.65</td></tr><tr><td>2</td><td><label class="name" for="sophie.dick">Sophie Dick</label></td><td class="num">1</td><td class="num">3</td><td>-13.19</td></tr><tr><td>3</td><td><label class="name" for="cool.person">cool Person</label></td><td class="num">0</td><td class="num">2</td><td>-14.84</td></tr><tr><td>4</td><td><label class="name" for="neil.diamond">Neil Diamond</label></td><td class="num">2</td><td class="num">11</td><td>-17.62</td></tr></tbody></table> -->
+      <!-- <table class="leaderboard" border="0"><tbody><tr><th>RANK</th><th>NAME</th><th>WON</th><th>LOST</th><th>SCORE</th></tr><tr><td>1</td><td><label class="name ui-draggable ui-draggable-handle" for="snehil.bhushan">Snehil Bhushan</label></td><td class="num">14</td><td class="num">2</td><td>25.21</td></tr><tr><td>2</td><td><label class="name ui-draggable ui-draggable-handle" for="sophie.dick">Sophie Dick</label></td><td class="num">0</td><td class="num">0</td><td>0.00</td></tr><tr><td>3</td><td><label class="name ui-draggable ui-draggable-handle" for="cool.person">cool Person</label></td><td class="num">0</td><td class="num">1</td><td>-7.59</td></tr><tr><td>4</td><td><label class="name ui-draggable ui-draggable-handle" for="neil.diamond">Neil Diamond</label></td><td class="num">2</td><td class="num">11</td><td>-17.62</td></tr></tbody></table> -->
     </div>
         <h3> Add Player </h3>
-        <!-- <form id="addScore" action="AddScore.php" method="post">
-            <table>
-                <tr>
-                    <td>Pass</td>
-                    <td>
-                        <input type="password" name="PASS" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>First name</td>
-                    <td>
-                        <input type="text" name="FNAME" value="Neil" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Last name</td>
-                    <td>
-                        <input type="text" name="LNAME" value="Diamond" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>
-                        <input type="text" name="UID" value="neil.diamond" />@akqa.com
-                    </td>
-                </tr>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" />
-                    </td>
-                </tr>
-                </tr>
-            </table>
-        </form>
-        <h3> Add Game </h3>
-        <form id="addGame" action="http://pool88.site88.net/AddGame.php" method="post">
-            <table>
-                <tr><td>Pass</td>
-                    <td><input type="password" name="PASS" /></td>
-                </tr>
-                <tr><td>Winner</td>
-                    <td><input type="text" name="WINNER" value="neil" /></td>
-                </tr>
-                <tr><td>loser</td>
-                    <td><input type="text" name="LOSER" value="neil.diamond" /></td>
-                </tr>
-                <tr><td>Was a drunk Game</td>
-                  <td><input type="number" name="DRUNK" value="0" />(0,1)->(yes,no)</td>
-                </tr>
-                <tr><td>Date</td>
-                    <td><input type="datetime-local" name="DATE" value="" /></td>
-                </tr>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" />
-                    </td>
-                </tr>
-                </tr>
-            </table>
-        </form> -->
-
     </div>
 </body>
 

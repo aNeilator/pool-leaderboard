@@ -52,6 +52,7 @@ elseif ($TYPE == "leaderboard") {
 	$q_s = "SELECT
 	@curRank := @curRank + 1 AS RANK,
 	CONCAT_WS(' ', p.FNAME, p.LNAME) AS NAME,
+	p.UID as ID,
 	p.WON as WON, p.LOST as LOST, ROUND(p.RATING,2) as SCORE
 	FROM PLAYER p, (SELECT @curRank := 0) r ";
 
