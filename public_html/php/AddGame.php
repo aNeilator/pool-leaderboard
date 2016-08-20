@@ -45,7 +45,7 @@ class Rating
     /**
      * @var int The K Factor used.
      */
-    const KFACTOR = 16;
+    const KFACTOR = 4;
 
     /**
      * Protected & private variables.
@@ -130,8 +130,8 @@ class Rating
 
     protected function _getExpectedScores($ratingA,$ratingB)
     {
-        $expectedScoreA = 1 / ( 1 + ( pow( 10 , ( $ratingB - $ratingA ) / 400 ) ) );
-        $expectedScoreB = 1 / ( 1 + ( pow( 10 , ( $ratingA - $ratingB ) / 400 ) ) );
+        $expectedScoreA = 1 / ( 1 + ( pow( 10 , ( $ratingB - $ratingA ) / 40 ) ) );
+        $expectedScoreB = 1 / ( 1 + ( pow( 10 , ( $ratingA - $ratingB ) / 40 ) ) );
 
         return array (
             'a' => $expectedScoreA,

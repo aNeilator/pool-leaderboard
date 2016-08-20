@@ -16,35 +16,41 @@ $(document).ready(function() {
 
     populateData();
 
-
-
 });
 
 var HOST = "http://pool88.site88.net/php/";
+var tableUpdateNum=0;
+var namedrags;
 
 function pullPhp(){
 
+
+  loaderToggle(true);
   $.get( HOST+"ReceiveScores.php",
     { TYPE: "leaderboard", DATERANGE: "year" },
     function( data ) {
       var asJson = JSON.parse(data);
       console.log(asJson);
-      var jsonQuery = createTable(asJson);
-      $('#stream-players').html(jsonQuery);
+      createTable(asJson);
+      $('#leader-table').tableSort({
+			     sortBy: ['numeric', 'text', 'numeric', 'numeric', 'numeric']
+		  });
+      if (tableUpdateNum==0){
+      }
+      loaderToggle(false);
       namedrags = $('.name');
       setDraggables();
-      // $.get( HOST+"ReceiveScores.php",
-      //   { TYPE: "recent", DATERANGE: "year" },
-      //   function( data ) {
-      //     var asJson = JSON.parse(data);
-      //     console.log(asJson);
-      //     var jsonQuery = createTable(asJson);
-      //     $('#stream-all').html(jsonQuery);
-      // });
   });
 }
 
-var namedrags;
+function loaderToggle(show){
+  var loader = $('#loader');
+    if (show==true){
+      loader.show();
+    }else {
+      loader.hide();
+    }
+}
 
 function setDraggables(){
 
@@ -68,9 +74,28 @@ function setDraggables(){
   namedrags.draggable("enable");
 }
 
+function sendAddPlayer(){
+  $.post( HOST+"AddPlayer.php",
+    {
+      PASS: "pass",
+      UID: $('#add-uid').val(),
+      FNAME: $('#add-fname').val(),
+      LNAME:  $('#add-lname').val()
+    },
+    function( data ) {
+      console.log(data);
+      pullPhp();
+      addPlayerViewToggle();
+
+    }
+  );
+
+}
+
 function populateData(){
   namedrags = $('.name');
   pullPhp();
+  // $('#leader-table').tableSort();
   // setDraggables();
 
   $('.circle').droppable( {
@@ -92,6 +117,7 @@ function populateData(){
 
   // });
 
+
   $('#cancel-right').click( function() {
       setNameChosen(false, false, playerDrag.loser, '');
   });
@@ -100,7 +126,7 @@ function populateData(){
   });
   $('#add-name-button').click( function() {
     if (playerDrag.winner=== '' || playerDrag.loser==='') return false;
-
+    loaderToggle(true);
     $.post( HOST+"AddGame.php",
       {
         PASS: "pass",
@@ -117,6 +143,19 @@ function populateData(){
       }
     );
   });
+
+
+  $('#add-uid').on('change keyup paste', function() {
+    var value = $(this).val();
+    var flname = value.split('.');
+    console.log(flname);
+    $('#add-fname').val(flname[0].capitalizeFirstLetter());
+    $('#add-lname').val(flname[1].capitalizeFirstLetter());
+  });
+}
+
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
 function resetNameDrag(uid, curr){
@@ -174,6 +213,10 @@ function setNameChosen(isWinner, isChosen, uid, playerName) {
   }
 }
 
+function addPlayerViewToggle(){
+    $('.add-player-overlay').toggle();
+}
+
 function handleCardDrop( event, ui ) {
   var slotNumber = $(this).data( 'number' );
   var cardNumber = ui.draggable.data( 'number' );
@@ -209,13 +252,14 @@ function handleCardDrop( event, ui ) {
 }
 
 function createTable(mydata) {
-    var table = $('<table class="leaderboard" border=0>');
-    var tblHeader = "<tr>";
+    $('#stream-players').html('<table id="leader-table" class="leaderboard " border=0>');
+    var table = $('#leader-table');
+    var tblHeader = "<thead><tr>";
     for (var k in mydata[0]) {
       if (k==="ID") continue;
       tblHeader += "<th>" + k + "</th>";
     }
-    tblHeader += "</tr>";
+    tblHeader += "</tr></thead>";
     $(tblHeader).appendTo(table);
     var setNewPlayerNow = false;
     var newPPos = 0;
@@ -243,11 +287,12 @@ function createTable(mydata) {
         });
         if (setNewPlayerNow){
           var str ="<td> </td><td> Add new Player </td><td></td><td></td><td></td>";
-          $(table).append("<tr class='add-player'>"+str+"</tr>");
+          // table.append("<tr onclick='addPlayerViewToggle()' class='add-player'>"+str+"</tr>");
           setNewPlayerNow = false;
         }
         TableRow += "</tr>";
-        $(table).append(TableRow);
+        table.append(TableRow);
     });
-    return ($(table));
+    // table.tableSort();
+    // return (table));
 }

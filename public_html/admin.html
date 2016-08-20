@@ -1,18 +1,61 @@
 <html>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <!-- <script src="js/jquery-2.1.4.min.js"></script> -->
-<head>
-  <title>Pool Leaderboard</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="theme-color" content="#ff0d28">
-  <script>
-    window.jQuery ||
-    document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">\x3C/script>')
-  </script>
-  <script src="js/main.js"></script>
-</head>
+<script>
+$(document).ready(function() {
+
+    $("#receiveScore").submit(function(event) {
+
+    });
+    $("#addScore, #addGame").submit(function(event) {
+        event.preventDefault();
+        var form = $(this);
+        var url = form.attr('action');
+        var posting = $.post(url, form.serialize());
+        console.log(form.serialize());
+        posting.done(function(data) {
+            console.log(data);
+            // $("#receiveScore").submit();
+        });
+    });
+
+    function createTable(mydata) {
+        var table = $('<table border=1>');
+        var tblHeader = "<tr>";
+        for (var k in mydata[0]) tblHeader += "<th>" + k + "</th>";
+        tblHeader += "</tr>";
+        $(tblHeader).appendTo(table);
+        $.each(mydata, function (index, value) {
+            var TableRow = "<tr>";
+            $.each(value, function (key, val) {
+                TableRow += "<td>" + val + "</td>";
+            });
+            TableRow += "</tr>";
+            $(table).append(TableRow);
+        });
+        return ($(table));
+    }
+
+    $.get( "ReceiveScores.php",
+      { TYPE: "recent", DATERANGE: "year" },
+      function( data ) {
+        var asJson = JSON.parse(data);
+        console.log(asJson);
+        var jsonQuery = createTable(asJson);
+        $('#stream-all').html(jsonQuery);
+    });
+
+    $.get( "ReceiveScores.php",
+      { TYPE: "leaderboard", DATERANGE: "year" },
+      function( data ) {
+        var asJson = JSON.parse(data);
+        console.log(asJson);
+        var jsonQuery = createTable(asJson);
+        $('#stream-players').html(jsonQuery);
+    });
+});
+</script>
+
 <body>
     <h1>admin page</h1>
     <h3> Latest Games </h3>

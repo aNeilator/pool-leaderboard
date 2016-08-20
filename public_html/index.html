@@ -16,9 +16,10 @@
   </script>
   <script src="js/main.js"></script>
   <script src="js/jquery-ui.min.js"></script>
+  <script src="js/animatedtablesorter/tsort.min.js"></script>
+  <link rel="stylesheet" href="js/animatedtablesorter/style.css" type="text/css" />
 </head>
 <body>
-    <h1>Pool</h1>
     <div class="circle left-circle">
       <span id = "add-name-left">WUT</span>
       <button id="cancel-left" class="button-add-cancel">Remove</button>
@@ -30,13 +31,40 @@
     <div id="add-name-button" class="circle button-add">
       <button>Add Game</button>
     </div>
-    <h3> Leaderboard </h3>
     <div id="stream-players">
       <!-- <table class="leaderboard" border="0"><tbody><tr><th>RANK</th><th>NAME</th><th>WON</th><th>LOST</th><th>SCORE</th></tr><tr><td>1</td><td><label class="name" for="snehil.bhushan">Snehil Bhushan</label></td><td class="num">18</td><td class="num">3</td><td>45.65</td></tr><tr><td>2</td><td><label class="name" for="sophie.dick">Sophie Dick</label></td><td class="num">1</td><td class="num">3</td><td>-13.19</td></tr><tr><td>3</td><td><label class="name" for="cool.person">cool Person</label></td><td class="num">0</td><td class="num">2</td><td>-14.84</td></tr><tr><td>4</td><td><label class="name" for="neil.diamond">Neil Diamond</label></td><td class="num">2</td><td class="num">11</td><td>-17.62</td></tr></tbody></table> -->
       <!-- <table class="leaderboard" border="0"><tbody><tr><th>RANK</th><th>NAME</th><th>WON</th><th>LOST</th><th>SCORE</th></tr><tr><td>1</td><td><label class="name ui-draggable ui-draggable-handle" for="snehil.bhushan">Snehil Bhushan</label></td><td class="num">14</td><td class="num">2</td><td>25.21</td></tr><tr><td>2</td><td><label class="name ui-draggable ui-draggable-handle" for="sophie.dick">Sophie Dick</label></td><td class="num">0</td><td class="num">0</td><td>0.00</td></tr><tr><td>3</td><td><label class="name ui-draggable ui-draggable-handle" for="cool.person">cool Person</label></td><td class="num">0</td><td class="num">1</td><td>-7.59</td></tr><tr><td>4</td><td><label class="name ui-draggable ui-draggable-handle" for="neil.diamond">Neil Diamond</label></td><td class="num">2</td><td class="num">11</td><td>-17.62</td></tr></tbody></table> -->
     </div>
+    <button onclick='addPlayerViewToggle()' >Add Player </button>
+    <section  id="loader" class="overlay loader">
+      Loading...
+    </section>
+    <section  class="add-player-overlay">
         <h3> Add Player </h3>
-    </div>
+        <div>
+          <button type="button" name="add-overlay-close" onclick="addPlayerViewToggle()">Close</button>
+              <table>
+                <tr><td>Email</td>
+                  <td><input id="add-uid" type="text" name="UID" placeholder="firstname.lastname" />@akqa.com
+                  </td>
+                </tr>
+                <tr>
+                  <td>First name</td>
+                  <td><input id="add-fname" type="text" name="FNAME" placeholder="Firstname" />
+                  </td>
+                </tr>
+                <tr><td>Last name</td>
+                  <td><input id="add-lname" type="text" name="LNAME" placeholder="Lastname" />
+                  </td>
+                </tr>
+                  <tr>
+                  <td></td>
+                  <td><button onclick="sendAddPlayer()">ADD </button>
+                  </td>
+                  </tr>
+              </table>
+        </div>
+      </div>
 </body>
 
 </html>
