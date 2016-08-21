@@ -1,162 +1,143 @@
-
 @font-face {
-  font-family: 'Roboto';
-  src: url("/fonts/Roboto-Regular.ttf");
-  font-weight: 100;
+    font-family: 'Roboto';
+    src: url("/fonts/Roboto-Regular.ttf");
+    font-weight: 100;
 }
-
-html{
+html {
     font-family: "Roboto" !important;
     font-weight: 500;
 }
-
-body{
-  background: rgba(250,250, 250, 1);
-  margin: auto;
-  text-align: -webkit-center;
+body {
+    background: rgba(250, 250, 250, 1);
+    margin: auto;
+    text-align: -webkit-center;
 }
-
-
-.name:hover{
-  background: #fde4e2;
-  cursor: -webkit-grab;
-  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-  transition: none;
-  border-radius: 2px;
+.name:hover {
+    background: #fde4e2;
+    cursor: -webkit-grab;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    transition: none;
+    border-radius: 2px;
 }
-
-.opac-0{
- /*opacity:0;*/
+.opac-0 {
+    /*opacity:0;*/
 }
-
-.name-helper{
- color: red;
- background: rgba(0,0,0,0.1);
- padding: 5px;
- box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
- font-size: 1.5em;
- transition: color 1s;
+.name-helper {
+    color: red;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1.5em;
+    transition: color 1s;
 }
-.name{
+.name {
     text-align: left;
     transition: none;
 }
-.leaderboard .num{
-  opacity: 0.5;
+.leaderboard .num {
+    opacity: 0.5;
 }
-
-.leaderboard{
-  background: white;
-  padding: 10px;
-  text-align: center;
-  font-size: 0.9em;
-  box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
-  border-radius: 2px;
-      line-height: 1.7em;
-      border-collapse: collapse;
+.leaderboard {
+    background: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    line-height: 1.7em;
+    border-collapse: collapse;
 }
-
 .leaderboard td {
-  color: gray;
-  padding: 0px 4px;
-  /*transition: 1s;*/
+    color: gray;
+    padding: 0px 4px;
+    /*transition: 1s;*/
 }
-
 .leaderboard tr {
-  padding: 2px 0px;
-
+    padding: 2px 0px;
 }
 .leaderboard tr:hover {
-  /*transform: scale(1.1,1.1);*/
+    /*transform: scale(1.1,1.1);*/
 }
-
-.leaderboard th{
-  font-size: 0.7em;
-  padding: 0px 4px;
-  color: #a56565;
-      padding-bottom: 5px;
-  font-weight: 700;
+.leaderboard th {
+    font-size: 0.7em;
+    padding: 0px 4px;
+    color: #a56565;
+    padding-bottom: 5px;
+    font-weight: 700;
 }
-
 .circle {
-  width: 200px;
-  height: 100%;
-  /*border-radius: 100px;*/
-  top: 0;
-  text-align: center;
-  font-size: 2.5em;
-  color: white;
-  text-transform: uppercase;
-  transition: 0.5s;
-  opacity: 0;
-  position: absolute;
+    width: 200px;
+    height: 100%;
+    /*border-radius: 100px;*/
+    top: 0;
+    text-align: center;
+    font-size: 2.5em;
+    color: white;
+    text-transform: uppercase;
+    transition: 0.5s;
+    opacity: 0;
+    position: absolute;
 }
-
-.button-add button:hover{
-  background: blue;
+.button-add button:hover {
+    background: blue;
 }
-.button-add button{
-  background: red;
-  outline: none;
-  border: 0;
-  padding: 10px 20px;
-  font-size: 20px;
-  color: white;
-  opacity: 0.4;
+.button-add button {
+    background: red;
+    outline: none;
+    border: 0;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    opacity: 0.4;
 }
-.button-add{
-  bottom: 0;
-  width: 100%;
-  top: inherit;
-  height: 60px;
-  margin-bottom: 40px;
+.button-add {
+    bottom: 0;
+    width: 100%;
+    top: inherit;
+    height: 60px;
+    margin-bottom: 40px;
 }
-
-.hovered-blink{
-  transition: width 1s;
-  width: 210px
+.hovered-blink {
+    transition: width 1s;
+    width: 210px
 }
-.left-circle{
-  background: blue;
+.left-circle {
+    background: blue;
 }
-
-.right-circle{
-  background: green;
-  float: right;
-  right: 0;
+.right-circle {
+    background: green;
+    float: right;
+    right: 0;
 }
-
 .add-player:hover {
-height: 40px;
-color: rgba(0,0,0,0.7);
-cursor: pointer;
+    height: 40px;
+    color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
 }
-.add-player td{
-  color: inherit;
+.add-player td {
+    color: inherit;
 }
-.add-player-overlay table{
-  color: blue;
-  background: antiquewhite;
-  padding: 20px;
-  border-radius: 5px;
+.add-player-overlay table {
+    color: blue;
+    background: antiquewhite;
+    padding: 20px;
+    border-radius: 5px;
 }
-.add-player-overlay, .overlay{
-  position: absolute;
-  top:0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
+.add-player-overlay, .overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
 }
 .add-player {
-  background: rgba(0,0,0,0.02);
-  line-height: 0.4;
-  color: rgba(0,0,0,0);
-  height: 0px;
-  transition: 0.3s;
+    background: rgba(0, 0, 0, 0.02);
+    line-height: 0.4;
+    color: rgba(0, 0, 0, 0);
+    height: 0px;
+    transition: 0.3s;
 }
-
-.loader{
-  /*display: block;*/
-
+.loader {
+    /*display: block;*/
 }
