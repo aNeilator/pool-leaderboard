@@ -3,9 +3,14 @@
     src: url("/fonts/Roboto-Regular.ttf");
     font-weight: 100;
 }
+@font-face {
+    font-family: 'Bebas';
+    src: url("/fonts/BEBAS.ttf");
+    font-weight: 100;
+}
 html {
     font-family: "Roboto" !important;
-    font-weight: 500;
+    font-weight: 300;
 }
 body {
     background: rgba(250, 250, 250, 1);
@@ -13,11 +18,8 @@ body {
     text-align: -webkit-center;
 }
 .name:hover {
-    background: #fde4e2;
+    background: rgba(255,255,255,0.2);
     cursor: -webkit-grab;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    transition: none;
-    border-radius: 2px;
 }
 .opac-0 {
     /*opacity:0;*/
@@ -31,39 +33,46 @@ body {
     transition: color 1s;
 }
 .name {
-    text-align: left;
     transition: none;
+	color: white;
+	max-width: 125px;
 }
 .leaderboard .num {
     opacity: 0.5;
 }
 .leaderboard {
-    background: white;
+    background: #252228;
     padding: 10px;
     text-align: center;
-    font-size: 0.9em;
+	height: 330px;
+    font-size: 0.8em;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-    border-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
     line-height: 1.7em;
     border-collapse: collapse;
 }
 .leaderboard td {
-    color: gray;
+    color: rgba(255,255,255,0.6);
     padding: 0px 4px;
     /*transition: 1s;*/
+    max-width: 125px;
 }
 .leaderboard tr {
     padding: 2px 0px;
+
 }
-.leaderboard tr:hover {
-    /*transform: scale(1.1,1.1);*/
+.leaderboard thead tr{
+	background: rgba(255, 255,255, 0.1);
+}
+.leaderboard tbody{
 }
 .leaderboard th {
     font-size: 0.7em;
     padding: 0px 4px;
-    color: #a56565;
-    padding-bottom: 5px;
+    color: rgba(255,255,255,0.8);
     font-weight: 700;
+	/*background: #ff304d;*/
 }
 .circle {
     width: 200px;
@@ -117,18 +126,47 @@ body {
 .add-player td {
     color: inherit;
 }
+.add-player-overlay input {
+height: 25px;
+outline: none;
+border: 0;
+background: rgba(255,255,255,0.1);
+color: #ff265d;
+padding: 10px;
+margin: 1px 12px;
+}
+
+.add-player-overlay button:disabled{
+	background: #2e1d1f;
+}
+.add-player-overlay button{
+
+width: 400px;
+
+height: 35px;
+
+border: 0;
+
+background: #ff2841;
+
+color: rgba(255,255,255,0.7);
+
+font-size: 1em;
+}
 .add-player-overlay table {
-    color: blue;
-    background: antiquewhite;
+    color: white;
+    font-size: 0.8em;
+    width: 400px;
+    background: #181818;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 .add-player-overlay, .overlay {
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     display: none;
 }
 .add-player {
@@ -140,4 +178,50 @@ body {
 }
 .loader {
     /*display: block;*/
+}
+
+.name-row{
+	transition: 0.3s;
+}
+
+.name-row:hover{
+	/*background: rgba(0,0,0,0.1);*/
+	transform: scale(1.04,1);
+}
+
+.name label{
+	max-width: 100px;
+}
+table nth-child(1){
+	background: black !important;
+}
+.score{
+
+	padding: 0px 14px 0px 0px !important;
+}
+
+.red{
+	color: #ff304d !important;
+}
+
+.blue{
+	color: #6378f0 !important;
+}
+
+.heading{
+	font-family: "bebas";
+	width: 335px;
+	height: 70px;
+	background: #ff304d;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+	border-radius: 2px;
+	font-size: 2.1em;
+	line-height: 2em;
+	/* z-index: 9; */
+	color: rgba(255,255,255,0.5);
+	position: relative;
+}
+
+.overlay::before{
+	filter: blur(10px);
 }
